@@ -310,7 +310,7 @@ pcall(function()
 for i, v in next, game.Players:GetPlayers() do
 if v ~= game.Players.LocalPlayer and v.Character and (v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("HumanoidRootPart")) then
 if v.Character.Humanoid.Sit ~= true then
-v.Character.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
+v.Character.HumanoidRootPart.Size = Vector3.new(12, 12, 12)
 v.Character.HumanoidRootPart.CanCollide = false
 else
 v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
