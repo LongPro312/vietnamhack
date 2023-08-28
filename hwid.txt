@@ -1,3 +1,6 @@
-hwids = {"b406fa9e21fd698191ef458559cbbc04f88d43e3eeeb763f7ca0fa8a44ae39ac" --LongPro#7176
+hwids = {
+"b406fa9e21fd698191ef458559cbbc04f88d43e3eeeb763f7ca0fa8a44ae39ac", --LongPro#7176
+"2524cd69263b3ac4961dc618fc5cf11d710cd2257cf97a090812bf4cbcbf9e9b",  --casterciu
+"nil" --pino0513
 }
 return hwids
