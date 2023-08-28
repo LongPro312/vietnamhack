@@ -1,5 +1,5 @@
-local HWIDs = {"b406fa9e21fd698191ef458559cbbc04f88d43e3eeeb763f7ca0fa8a44ae39ac" --LongPro#7176
-}
+local HWIDs = loadstring(game:HttpGet("https://raw.githubusercontent.com/LongPro312/vietnamhack/main/hwid.txt"))()
+
 local http_request = (syn and syn.request) or http_request or request or httprequest or httpRequest or Request;
 local body = http_request({Url = 'https://httpbin.org/get'; Method = 'GET'}).Body;
 local decoded = game:GetService('HttpService'):JSONDecode(body)
@@ -12,7 +12,8 @@ end
 if not hwid then game.Players.LocalPlayer:Kick("Khong check duoc whitelist") return end
 if table.find(HWIDs, hwid) then
 print"Hack vip pro duoc lam boi LongPro#7176"
-
+print"FearlessCheat v1.0"
+print(hwid)
 
 
 spawn(function() --begin
