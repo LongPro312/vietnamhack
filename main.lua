@@ -223,6 +223,7 @@ end
 end)
 
 function update_esp()
+                    pcall(function()
     for player, esp in next, cache do
         local character = player and player.Character;
         if character then
@@ -273,6 +274,7 @@ function update_esp()
             esp.armor.Visible = false;
         end
     end
+                         end)
 end
 
 -- connections
