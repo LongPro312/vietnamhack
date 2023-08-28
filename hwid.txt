@@ -1,2 +1,3 @@
-hwids = {b406fa9e21fd698191ef458559cbbc04f88d43e3eeeb763f7ca0fa8a44ae39ac}
+hwids = {"b406fa9e21fd698191ef458559cbbc04f88d43e3eeeb763f7ca0fa8a44ae39ac" --LongPro#7176
+}
 return hwids
