@@ -1,3 +1,5 @@
+if not _G.hackexecuted then
+     _G.hackexecuted=true
 local HWIDs = loadstring(game:HttpGet("https://raw.githubusercontent.com/LongPro312/vietnamhack/main/hwid.txt"))()
 
 local http_request = (syn and syn.request) or http_request or request or httprequest or httpRequest or Request;
@@ -11,12 +13,13 @@ for i,v in pairs(headers) do
 end
 if not hwid then game.Players.LocalPlayer:Kick("Khong check duoc whitelist") return end
 if table.find(HWIDs, hwid) then
-print"Hack vip pro duoc lam boi LongPro#7176"
-print"FearlessCheat v1.0"
+print"Hack vip pro duoc lam boi LongPro"
+print"FearlessCheat v1.1"
 print(hwid)
 
 
 spawn(function() --begin
+                    if settings["FastTools"] then
 for i, v in next, getgc(game) do
 if typeof(v) == "function" then
 for i1, v1 in next, debug.getupvalues(v) do
@@ -28,6 +31,8 @@ end
 end
 end
 end
+                    end
+                         
 
 if game.Players.LocalPlayer.Character:FindFirstChild("stamina") then
 game.Players.LocalPlayer.Character.stamina:Remove()
@@ -61,15 +66,17 @@ end
 return speed
 end
 game.Players.LocalPlayer.Character.Humanoid.Changed:Connect(function(v)
-if v == "WalkSpeed" then
+if v == "WalkSpeed" and settings["SpeedHack"] == true then
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedget(38)
 end
 end)
+               if settings["SpeedHack"] == true then
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedget(38)
+               end
 
 local UIS = game:GetService("UserInputService")
 UIS.InputBegan:Connect(function(input)
-if UIS:IsKeyDown(Enum.KeyCode.Space) and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+if UIS:IsKeyDown(Enum.KeyCode.Space) and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and settings["InfiniteJump"] then
 game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
 end
 end)
@@ -80,6 +87,7 @@ game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 game.Players.LocalPlayer.Character:WaitForChild("stamina")
 game.Players.LocalPlayer.Character:WaitForChild("fallDamage")
 wait(1)
+                              if settings["FastTools"] then
 for i, v in next, getgc(game) do
 if typeof(v) == "function" then
 for i1, v1 in next, debug.getupvalues(v) do
@@ -91,15 +99,18 @@ end
 end
 end
 end
+                              end
 wait(1)
 game.Players.LocalPlayer.Character.stamina:Remove()
 game.Players.LocalPlayer.Character:WaitForChild("fallDamage"):Remove()
 game.Players.LocalPlayer.Character.Humanoid.Changed:Connect(function(v)
-if v == "WalkSpeed" then
+if v == "WalkSpeed" and settings["SpeedHack"] == true then
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedget(38)
 end
 end)
+                         if settings["SpeedHack"] == true then
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedget(38)
+                         end
 end)
 
 
@@ -247,7 +258,11 @@ function update_esp()
                 if _G.toggled == true and player.Team ~= localplayer.Team then
                 esp.name.Text = (player.Name .. " [ON]");
                 else
+                                                       if settings["ESP_DisplayName"] then
+                esp.name.Text = (player.DisplayName);
+                                                       else
                 esp.name.Text = (player.Name);
+                                                       end
                 end
                 if player.Team ~= game.Players.LocalPlayer.Team then
                 esp.name.Color = Color3.new(205,0,0)
@@ -305,13 +320,28 @@ Meta.__index = function(self, arg)
 end;
 setreadonly(Meta, true);
 
-while wait(1) do
+local function checkbow()
+local lmao = false
+for i, v in next, game.Players.LocalPlayer.Character:GetDescendants() do
+if tostring(v) == "Arrow" and v:IsA("Model") and v.Parent.Parent and v.Parent.Parent:IsA("Tool") then
+lmao = true
+end
+end
+return lmao
+end
+
+while wait(0.1) do
 pcall(function()
 for i, v in next, game.Players:GetPlayers() do
 if v ~= game.Players.LocalPlayer and v.Character and (v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("HumanoidRootPart")) then
 if v.Character.Humanoid.Sit ~= true then
+local check = checkbow()
+if check == false then
 v.Character.HumanoidRootPart.Size = Vector3.new(12, 12, 12)
 v.Character.HumanoidRootPart.CanCollide = false
+else
+v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
+end
 else
 v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
 end
@@ -327,4 +357,10 @@ end) --end
 else
 setclipboard("discord.gg/Avp48C3zPZ")
 game.Players.LocalPlayer:Kick("Ban chua duoc whitelist, gia nhap discord.gg/Avp48C3zPZ de duoc whitelist mien phi. Duong link da duoc copy ve may")
+end
+
+else
+                              if settings["SpeedHack"] == true then
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 38
+                         end
 end
