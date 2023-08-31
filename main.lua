@@ -13,7 +13,6 @@ for i,v in pairs(headers) do
 end
 if not hwid then game.Players.LocalPlayer:Kick("Khong check duoc whitelist") return end
 if table.find(HWIDs, hwid) then
-print"Hack vip pro duoc lam boi LongPro"
 print"FearlessCheat v1.1"
 print(hwid)
 
